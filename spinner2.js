@@ -1,19 +1,10 @@
-let delay =0
-for(let i=0 ;i<5;i++){
-setTimeout(() => {
-  process.stdout.write('\r|   ');
-}, delay +=100);
 
-setTimeout(() => {
-  process.stdout.write('\r/   ');
-},delay += 300);
+const spinnerKeys = ['|', '/', '-', '\\', '|', '/', '-', '\\', '|',];
+let counter = 100;
+for (let key of spinnerKeys) {
+  setTimeout(() => {
+    process.stdout.write(`\r${key}   `);
+  }, counter);
+  counter += 200;
+}
 
-setTimeout(() => {
-  process.stdout.write('\r-   ');
-}, delay += 500);
-
-setTimeout(() => {
-  // Need to escape the backslash since it's a special character.
-  process.stdout.write('\r\\   ');
-}, delay += 700);
-i ++}
